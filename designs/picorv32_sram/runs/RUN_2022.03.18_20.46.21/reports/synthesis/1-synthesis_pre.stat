@@ -1,0 +1,16 @@
+
+10. Printing statistics.
+
+=== picorv32_sram ===
+
+   Number of wires:                 29
+   Number of wire bits:            442
+   Number of public wires:          29
+   Number of public wire bits:     442
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     picorv32_woready                1
+     sky130_sram_2kbyte_1rw1r_32x512_8      1
+

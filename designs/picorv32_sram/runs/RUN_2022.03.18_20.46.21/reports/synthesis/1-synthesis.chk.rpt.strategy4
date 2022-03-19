@@ -1,0 +1,5 @@
+
+23. Executing CHECK pass (checking for obvious problems).
+Checking module picorv32_sram...
+Warning: Wire picorv32_sram.\mem_instr is used but has no driver.
+Found and reported 1 problems.

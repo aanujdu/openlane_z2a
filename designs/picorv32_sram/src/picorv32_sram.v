@@ -79,7 +79,7 @@ module picorv32_sram(
     .addr1(mem_addr[17:9]),
     .dout1(mem_rdata1));
 
-  picorv32a_woready cpu(
+  picorv32_woready cpu(
         .clk(clk),.resetn(resetn),
 	.trap(trap),
 	.mem_valid(mem_valid),
@@ -136,5 +136,105 @@ module picorv32_sram(
 	// Trace Interface
 	.trace_valid(trace_valid),
 	.trace_data(trace_data));
+endmodule
+
+(* blackbox *)
+module picorv32_woready(
+	input             clk, resetn,
+	output            trap,
+
+	output            mem_valid,
+	output            mem_instr,
+
+	output  [31:0]    mem_addr,
+	output  [31:0]    mem_wdata,
+	output  [ 3:0]    mem_wstrb,
+	input   [31:0]    mem_rdata,
+
+	// Look-Ahead Interface
+	output            mem_la_read,
+	output            mem_la_write,
+	output     [31:0] mem_la_addr,
+	output [31:0]     mem_la_wdata,
+	output [ 3:0]     mem_la_wstrb,
+
+	// Pico Co-Processor Interface (PCPI)
+	output            pcpi_valid,
+	output [31:0]     pcpi_insn,
+	output     [31:0] pcpi_rs1,
+	output     [31:0] pcpi_rs2,
+	input             pcpi_wr,
+	input      [31:0] pcpi_rd,
+	input             pcpi_wait,
+	input             pcpi_ready,
+
+	// IRQ Interface
+	input      [31:0] irq,
+	output [31:0]     eoi,
+
+`ifdef RISCV_FORMAL
+	output        rvfi_valid,
+	output [63:0] rvfi_order,
+	output [31:0] rvfi_insn,
+	output        rvfi_trap,
+	output        rvfi_halt,
+	output        rvfi_intr,
+	output [ 4:0] rvfi_rs1_addr,
+	output [ 4:0] rvfi_rs2_addr,
+	output [31:0] rvfi_rs1_rdata,
+	output [31:0] rvfi_rs2_rdata,
+	output [ 4:0] rvfi_rd_addr,
+	output [31:0] rvfi_rd_wdata,
+	output [31:0] rvfi_pc_rdata,
+	output [31:0] rvfi_pc_wdata,
+	output [31:0] rvfi_mem_addr,
+	output [ 3:0] rvfi_mem_rmask,
+	output [ 3:0] rvfi_mem_wmask,
+	output [31:0] rvfi_mem_rdata,
+	output [31:0] rvfi_mem_wdata,
+`endif
+
+	// Trace Interface
+	output        trace_valid,
+	output [35:0] trace_data
+);
+endmodule
+
+(* blackbox *)
+module sky130_sram_2kbyte_1rw1r_32x512_8(
+`ifdef USE_POWER_PINS
+    vccd1,
+    vssd1,
+`endif
+// Port 0: RW
+    clk0,csb0,web0,wmask0,addr0,din0,dout0,
+// Port 1: R
+    clk1,csb1,addr1,dout1
+  );
+
+  parameter NUM_WMASKS = 4 ;
+  parameter DATA_WIDTH = 32 ;
+  parameter ADDR_WIDTH = 9 ;
+  parameter RAM_DEPTH = 1 << ADDR_WIDTH;
+  // FIXME: This delay is arbitrary.
+  parameter DELAY = 3 ;
+  parameter VERBOSE = 1 ; //Set to 0 to only display warnings
+  parameter T_HOLD = 1 ; //Delay to hold dout value after posedge. Value is arbitrary
+
+`ifdef USE_POWER_PINS
+    inout vccd1;
+    inout vssd1;
+`endif
+  input  clk0; // clock
+  input   csb0; // active low chip select
+  input  web0; // active low write control
+  input [NUM_WMASKS-1:0]   wmask0; // write mask
+  input [ADDR_WIDTH-1:0]  addr0;
+  input [DATA_WIDTH-1:0]  din0;
+  output [DATA_WIDTH-1:0] dout0;
+  input  clk1; // clock
+  input   csb1; // active low chip select
+  input [ADDR_WIDTH-1:0]  addr1;
+  output [DATA_WIDTH-1:0] dout1;
 
 endmodule

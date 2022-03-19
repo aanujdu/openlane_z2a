@@ -11,7 +11,7 @@ set ::env(CLOCK_PORT) "clk"
 set ::env(MACRO_PLACEMENT_CFG) [glob $::env(DESIGN_DIR)/macro.cfg]
 
 ### Black-box verilog and views
-set ::env(VERILOG_FILES) [glob $::env(DESIGN_DIR)/src/*.v]
+#set ::env(VERILOG_FILES) [glob $::env(DESIGN_DIR)/src/*.v]
 set ::env(EXTRA_LEFS) [glob $::env(DESIGN_DIR)/macros/lef/*.lef]
 set ::env(EXTRA_GDS_FILES) [glob $::env(DESIGN_DIR)/macros/gds/*.gds]
 

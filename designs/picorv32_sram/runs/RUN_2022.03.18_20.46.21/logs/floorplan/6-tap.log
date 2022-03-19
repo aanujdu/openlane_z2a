@@ -1,0 +1,20 @@
+OpenROAD 8d53e9b018dec98fa63e907ddeb6c5406f035361 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ODB-0222] Reading LEF file: /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_20.46.21/tmp/merged_unpadded.lef
+[INFO ODB-0223]     Created 13 technology layers
+[INFO ODB-0224]     Created 25 technology vias
+[INFO ODB-0225]     Created 443 library cells
+[INFO ODB-0226] Finished LEF file:  /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_20.46.21/tmp/merged_unpadded.lef
+[INFO ODB-0127] Reading DEF file: /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_20.46.21/tmp/floorplan/4-io.macro_placement.def
+[INFO ODB-0128] Design: picorv32_sram
+[INFO ODB-0130]     Created 341 pins.
+[INFO ODB-0131]     Created 3 components and 541 component-terminals.
+[INFO ODB-0133]     Created 442 nets and 531 connections.
+[INFO ODB-0134] Finished DEF file: /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_20.46.21/tmp/floorplan/4-io.macro_placement.def
+[WARNING TAP-0014] endcap_cpp option is deprecated.
+[INFO TAP-0001] Found 2 macro blocks.
+[INFO TAP-0002] Original rows: 359
+[INFO TAP-0003] Created 227 rows for a total of 586 rows.
+[INFO TAP-0004] Inserted 1172 endcaps.
+[INFO TAP-0005] Inserted 7152 tapcells.

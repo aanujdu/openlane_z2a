@@ -1,0 +1,38 @@
+Fri Mar 18 20:46:21 UTC 2022 - Executing "/openlane/scripts/mergeLef.py -i /home/aanujdu/z2a/pdk/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd.tlef /home/aanujdu/z2a/pdk/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef -o /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_20.46.21/tmp/merged_unpadded.lef |& tee >&@stdout"
+
+Fri Mar 18 20:46:21 UTC 2022 - Executing "/openlane/scripts/mergeLef.py -i /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_20.46.21/tmp/merged_unpadded.lef /openlane/designs/picorv32_sram/macros/lef/sky130_sram_2kbyte_1rw1r_32x512_8.lef /openlane/designs/picorv32_sram/macros/lef/picorv32_woready.lef -o /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_20.46.21/tmp/merged_unpadded.lef |& tee >&@stdout"
+
+Fri Mar 18 20:46:21 UTC 2022 - Executing "openroad -python /openlane/scripts/mergeLib.py --output /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_20.46.21/tmp/synthesis/merged.lib --name sky130A_merged /home/aanujdu/z2a/pdk/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+
+Fri Mar 18 20:46:22 UTC 2022 - Executing "openroad -python /openlane/scripts/libtrim.py --cell-file /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_20.46.21/tmp/synthesis/trimmed.lib.exclude.list --output /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_20.46.21/tmp/synthesis/trimmed.lib /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_20.46.21/tmp/synthesis/merged.lib"
+
+Fri Mar 18 20:46:22 UTC 2022 - Executing "echo {openlane 2022.02.23_02.50.41-2-gdcba8f6} > /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_20.46.21/OPENLANE_VERSION"
+
+Fri Mar 18 20:46:22 UTC 2022 - Executing "openroad -python /openlane/scripts/new_tracks.py -i /home/aanujdu/z2a/pdk/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tracks.info -o /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_20.46.21/tmp/routing/config.tracks"
+
+Fri Mar 18 20:46:22 UTC 2022 - Executing "sed -E {s/^([[:space:]]+)pg_pin(.*)/\1pin\2\n\1    direction : "inout";/g} /home/aanujdu/z2a/pdk/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib > /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_20.46.21/tmp/synthesis/1-sky130_fd_sc_hd__tt_025C_1v80.no_pg.lib"
+
+Fri Mar 18 20:46:23 UTC 2022 - Executing "yosys -c /openlane/scripts/yosys/synth.tcl -l /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_20.46.21/logs/synthesis/1-synthesis.log |& tee >&@stdout"
+
+Fri Mar 18 20:46:23 UTC 2022 - Executing "sed -i -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/openlane\/designs\/picorv32_sram\/runs\/RUN_2022.03.18_20.46.21\/results\/synthesis\/picorv32_sram.v/} /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_20.46.21/config.tcl"
+
+Fri Mar 18 20:46:23 UTC 2022 - Executing "sed -i -e {s/\(set ::env(PREV_NETLIST)\).*/\1 0/} /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_20.46.21/config.tcl"
+
+Fri Mar 18 20:46:23 UTC 2022 - Executing "sed -i /defparam/d /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_20.46.21/results/synthesis/picorv32_sram.v"
+
+Fri Mar 18 20:46:23 UTC 2022 - Executing "openroad -exit /openlane/scripts/openroad/sta.tcl"
+
+Fri Mar 18 20:46:24 UTC 2022 - Executing "openroad -exit /openlane/scripts/openroad/floorplan.tcl"
+
+Fri Mar 18 20:46:25 UTC 2022 - Executing "openroad -python /openlane/scripts/defutil.py extract_core_dims --output-data /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_20.46.21/tmp/dimensions.txt --input-lef /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_20.46.21/tmp/merged.lef /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_20.46.21/tmp/floorplan/3-initial_fp.def"
+
+Fri Mar 18 20:46:25 UTC 2022 - Executing "openroad -exit /openlane/scripts/openroad/ioplacer.tcl"
+
+Fri Mar 18 20:46:26 UTC 2022 - Executing "openroad -python /openlane/scripts/manual_macro_place.py -l /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_20.46.21/tmp/merged.lef -id /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_20.46.21/tmp/floorplan/4-io.def -o /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_20.46.21/tmp/floorplan/4-io.macro_placement.def -c /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_20.46.21/tmp/placement/macro_placement.cfg -f |& tee >&@stdout /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_20.46.21/logs/placement/5-macro_placement.log"
+
+Fri Mar 18 20:46:26 UTC 2022 - Executing "openroad -exit /openlane/scripts/openroad/tapcell.tcl"
+
+Fri Mar 18 20:46:26 UTC 2022 - Executing "openroad -exit /openlane/scripts/openroad/pdn.tcl"
+
+Fri Mar 18 20:46:28 UTC 2022 - Executing "openroad -python /openlane/scripts/generate_reports.py -d /openlane/designs/picorv32_sram --design_name picorv32_sram --tag RUN_2022.03.18_20.46.21 --output_file /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_20.46.21/reports/final_summary_report.csv --man_report /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_20.46.21/reports/manufacturability_report.rpt --run_path /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_20.46.21"
+

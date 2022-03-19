@@ -16,8 +16,13 @@ set ::env(EXTRA_LEFS) [glob $::env(DESIGN_DIR)/macros/lef/*.lef]
 set ::env(EXTRA_GDS_FILES) [glob $::env(DESIGN_DIR)/macros/gds/*.gds]
 
 set ::env(FP_SIZING) "absolute"
-set ::env(DIE_AREA) {0 0 1000 1000}
-	
+set ::env(DIE_AREA) {0 0 2000 2000}
+
+### Macro PDN Connections
+set ::env(FP_PDN_MACRO_HOOKS) "\
+        sram vccd1 vssd1"
+set ::env(FP_PDN_CHECK_NODES) 0
+set ::env(FP_PDN_ENABLE_RAILS) 0
 
 set filename $::env(DESIGN_DIR)/$::env(PDK)_$::env(STD_CELL_LIBRARY)_config.tcl
 if { [file exists $filename] == 1} {

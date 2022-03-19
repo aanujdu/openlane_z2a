@@ -1,0 +1,6 @@
+[ERROR]: during executing: "yosys -c /openlane/scripts/yosys/synth.tcl -l /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_15.20.52/logs/synthesis/1-synthesis.log |& tee >&@stdout"
+[ERROR]: Exit code: 1
+[ERROR]: Last 10 lines:
+child process exited abnormally
+
+[ERROR]: Flow failed.

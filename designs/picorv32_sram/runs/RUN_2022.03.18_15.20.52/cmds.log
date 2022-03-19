@@ -1,0 +1,18 @@
+Fri Mar 18 15:20:52 UTC 2022 - Executing "/openlane/scripts/mergeLef.py -i /home/aanujdu/z2a/pdk/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd.tlef /home/aanujdu/z2a/pdk/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef -o /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_15.20.52/tmp/merged_unpadded.lef |& tee >&@stdout"
+
+Fri Mar 18 15:20:52 UTC 2022 - Executing "/openlane/scripts/mergeLef.py -i /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_15.20.52/tmp/merged_unpadded.lef /openlane/designs/picorv32_sram/macros/lef/sky130_sram_2kbyte_1rw1r_32x512_8.lef /openlane/designs/picorv32_sram/macros/lef/picorv32_woready.lef -o /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_15.20.52/tmp/merged_unpadded.lef |& tee >&@stdout"
+
+Fri Mar 18 15:20:52 UTC 2022 - Executing "openroad -python /openlane/scripts/mergeLib.py --output /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_15.20.52/tmp/synthesis/merged.lib --name sky130A_merged /home/aanujdu/z2a/pdk/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+
+Fri Mar 18 15:20:53 UTC 2022 - Executing "openroad -python /openlane/scripts/libtrim.py --cell-file /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_15.20.52/tmp/synthesis/trimmed.lib.exclude.list --output /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_15.20.52/tmp/synthesis/trimmed.lib /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_15.20.52/tmp/synthesis/merged.lib"
+
+Fri Mar 18 15:20:53 UTC 2022 - Executing "echo {openlane 2022.02.23_02.50.41} > /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_15.20.52/OPENLANE_VERSION"
+
+Fri Mar 18 15:20:53 UTC 2022 - Executing "openroad -python /openlane/scripts/new_tracks.py -i /home/aanujdu/z2a/pdk/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tracks.info -o /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_15.20.52/tmp/routing/config.tracks"
+
+Fri Mar 18 15:20:54 UTC 2022 - Executing "sed -E {s/^([[:space:]]+)pg_pin(.*)/\1pin\2\n\1    direction : "inout";/g} /home/aanujdu/z2a/pdk/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib > /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_15.20.52/tmp/synthesis/1-sky130_fd_sc_hd__tt_025C_1v80.no_pg.lib"
+
+Fri Mar 18 15:20:54 UTC 2022 - Executing "yosys -c /openlane/scripts/yosys/synth.tcl -l /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_15.20.52/logs/synthesis/1-synthesis.log |& tee >&@stdout"
+
+Fri Mar 18 15:20:54 UTC 2022 - Executing "openroad -python /openlane/scripts/generate_reports.py -d /openlane/designs/picorv32_sram --design_name picorv32_sram --tag RUN_2022.03.18_15.20.52 --output_file /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_15.20.52/reports/final_summary_report.csv --man_report /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_15.20.52/reports/manufacturability_report.rpt --run_path /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_15.20.52"
+

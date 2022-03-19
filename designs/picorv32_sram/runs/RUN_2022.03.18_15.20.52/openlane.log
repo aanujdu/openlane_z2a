@@ -1,0 +1,39 @@
+[INFO]: Current run directory is /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_15.20.52
+[INFO]: Storing configs into config.tcl ...
+[INFO]: Preparing LEF Files
+[INFO]: Extracting the number of available metal layers from /home/aanujdu/z2a/pdk/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd.tlef
+[INFO]: The available metal layers (6) are li1  met1  met2  met3  met4  met5
+[INFO]: Merging LEF Files...
+[INFO]: Merging the following extra LEFs: /openlane/designs/picorv32_sram/macros/lef/sky130_sram_2kbyte_1rw1r_32x512_8.lef /openlane/designs/picorv32_sram/macros/lef/picorv32_woready.lef
+[INFO]: Trimming Liberty...
+[INFO]: Generating Exclude List...
+[INFO]: Generating Exclude List...
+[INFO]: Creating ::env(DONT_USE_CELLS)...
+[INFO]: Looking for files defined in ::env(EXTRA_GDS_FILES) /openlane/designs/picorv32_sram/macros/gds/picorv32_woready.gds /openlane/designs/picorv32_sram/macros/gds/sky130_sram_2kbyte_1rw1r_32x512_8.gds ...
+[INFO]: /openlane/designs/picorv32_sram/macros/gds/picorv32_woready.gds exists.
+[INFO]: /openlane/designs/picorv32_sram/macros/gds/sky130_sram_2kbyte_1rw1r_32x512_8.gds exists.
+[INFO]: Preparation complete
+[INFO]: Incremented step index to 0.
+[INFO]: Running Synthesis...
+[ERROR]: during executing: "yosys -c /openlane/scripts/yosys/synth.tcl -l /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_15.20.52/logs/synthesis/1-synthesis.log |& tee >&@stdout"
+[ERROR]: Exit code: 1
+[ERROR]: Last 10 lines:
+child process exited abnormally
+
+[INFO]: Calculating Runtime From the Start...
+[INFO]: Generating Final Summary Report...
+[INFO]: Design Name: picorv32_sram
+Run Directory: /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_15.20.52
+Source not found.
+----------------------------------------
+
+LVS Summary:
+Source: /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_15.20.52/logs/finishing/picorv32_sram.lvs.lef.log
+Source not found.
+----------------------------------------
+
+Antenna Summary:
+No antenna report found.
+[INFO]: check full report here: /openlane/designs/picorv32_sram/runs/RUN_2022.03.18_15.20.52/reports/final_summary_report.csv
+[INFO]: Saving runtime environment...
+[ERROR]: Flow failed.
